@@ -30,17 +30,6 @@ namespace ReactDemo.Controllers
 			return Json(comments);
 		}
 
-		//[Route("comments/add")]
-		//[HttpPost]
-		//public async Task<ActionResult> AddComment(Comment comment)
-		//{
-		//	_dbContext.Add(comment);
-		//	await _dbContext.SaveChangesAsync();
-		//	//return Content("Success :)");
-
-		//	return RedirectToAction(nameof(Index));
-		//}
-
 		[Route("comments/add")]
 		[HttpPost]
 		public async Task<ActionResult> AddComment(Comment comment)
@@ -48,9 +37,8 @@ namespace ReactDemo.Controllers
 			comment.CreatedOn = DateTime.Now;
 			_dbContext.Add(comment);
 			await _dbContext.SaveChangesAsync();
-			return Content("Success :)");
 
-			//return RedirectToAction(nameof(Index));
+			return RedirectToAction(nameof(Index));
 		}
 
 		//public async Task<ViewResult> Edit(int? id)
